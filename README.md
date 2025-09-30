@@ -28,8 +28,11 @@ Các bước cài đặt: (chế độ development)
 ===
 
 Cách chạy tại chế độ production:
-1. clone code
+1. clone codea
 2. cài đặt thư viện: npm i
 3. Update file .env.production (nếu cần thiết)
 4. Build dự án: npm run build
 5. Chạy dự án: npm run preview
+// neu ma co 1 repository cua nguoi khac minh keo ve roi va muon up len may minh
+
+git remote set-url origin ( duong link dan den repository cua minh)
