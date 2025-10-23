@@ -1,5 +1,5 @@
 const ToDoData = (props) => {
-    const { name, age } = props
+    const { name, age, todoList } = props
 
 
 
@@ -8,8 +8,18 @@ const ToDoData = (props) => {
         // props la 1 obj
 
         <div className="todo-data">
-            <div>Learning English {name} </div>
-            <div>Watching Youtube {age}</div>
+            {todoList.map((item, index) => {
+                return (
+                    <div className="todo-item">
+                        <div>{item.name}</div>
+                        <button>Delete</button>
+
+                    </div>
+
+
+                )
+            })}
+
             <div>
                 {JSON.stringify(props.todoList)}
 
