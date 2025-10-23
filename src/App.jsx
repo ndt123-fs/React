@@ -6,12 +6,7 @@ import { useFormState } from "react-dom"
 import { useState } from "react"
 
 const App = () => {
-  // const name = "Eric";
-  // const age = 25;
-  // const data = {
-  //   address: "Ho Chi Minh",
-  //   country: "Viet Nam"
-  // }
+
   const [todoList, setToDoList] = useState([
     //  { id: 1, name: "Learning English" }, { id: 2, name: "Watching youtube" }
   ])
@@ -37,16 +32,14 @@ const App = () => {
       <ToDoNew
         addNewToDo={addNewToDo}
       />
-      <ToDoData
-        // name={name}
-        // age={age}
-        // data={data}
-        todoList={todoList}
-
-      />
-      <div className="todo-image">
-        <img src={logo} className="logo" />
-      </div>
+      {todoList.length > 0 ?
+        <ToDoData
+          todoList={todoList}
+        />
+        :
+        <div className="todo-image">
+          <img src={logo} className="logo" />
+        </div>}
     </div>
 
 
