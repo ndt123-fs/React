@@ -2,7 +2,6 @@ import "./components/todo/todo.css"
 import ToDoData from "./components/todo/ToDoData"
 import ToDoNew from "./components/todo/ToDoNew"
 import logo from "./assets/react.svg"
-import { useFormState } from "react-dom"
 import { useState } from "react"
 
 const App = () => {
@@ -16,6 +15,16 @@ const App = () => {
       name: name
     }
     setToDoList([...todoList, newToDo]);
+  }
+  const deleteToDo = (id) => {
+    //loc bot nhung item trong list co id khac voi id truyen vao 
+    // giu lai cac item co id khac voi id ban truyen vao 
+    const newToDo = todoList.filter(item => item.id !== id);
+    console.log(newToDo)
+    setToDoList(newToDo)
+
+
+
   }
 
   const randomIntFromInterval = (min, max) => {
@@ -31,10 +40,12 @@ const App = () => {
       <div className="todo-title">Todo List</div>
       <ToDoNew
         addNewToDo={addNewToDo}
+
       />
       {todoList.length > 0 ?
         <ToDoData
           todoList={todoList}
+          deleteToDo={deleteToDo}
         />
         :
         <div className="todo-image">
