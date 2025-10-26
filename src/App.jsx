@@ -3,6 +3,8 @@ import ToDoData from "./components/todo/ToDoData"
 import ToDoNew from "./components/todo/ToDoNew"
 import logo from "./assets/react.svg"
 import { useState } from "react"
+import Header from "./components/layout/header"
+import Footer from "./components/layout/footer"
 
 const App = () => {
 
@@ -34,37 +36,27 @@ const App = () => {
 
   }
   return (
-
-
-    < div className="todo-container">
-      <div className="todo-title">Todo List</div>
-      <ToDoNew
-        addNewToDo={addNewToDo}
-
-      />
-      {todoList.length > 0 ?
-        <ToDoData
-          todoList={todoList}
-          deleteToDo={deleteToDo}
+    <>
+      <Header />
+      < div className="todo-container">
+        <div className="todo-title">Todo List</div>
+        <ToDoNew
+          addNewToDo={addNewToDo}
         />
-        :
-        <div className="todo-image">
-          <img src={logo} className="logo" />
-        </div>}
-    </div>
+        {todoList.length > 0 ?
+          <ToDoData
+            todoList={todoList}
+            deleteToDo={deleteToDo}
+          />
+          :
+          <div className="todo-image">
+            <img src={logo} className="logo" />
+          </div>}
+      </div>
+      <Footer />
+    </>
 
 
-    // <div className="todo-container">
-    //   <div className="todo-title">Todo List</div>
-    //   <div className="todo-new">
-    //     <input type="text" placeholder="Add a item" />
-    //     <button>Add</button>
-    //   </div>
-    //   <div className="todo-data">
-    //     <div>Learning English</div>
-    //     <div>Watching Youtube</div>
-    //   </div>
-    // </div>
   )
 }
 
